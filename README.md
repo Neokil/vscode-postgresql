@@ -1,3 +1,5 @@
+# Updated for MacOS M1 due to inactivity on the original Project
+
 # PostgreSQL for Visual Studio Code
 
 Welcome to PostgreSQL for Visual Studio Code! An extension for developing PostgreSQL with functionalities including:
