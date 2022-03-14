@@ -1,7 +1,7 @@
 {
   "name": "vscode-postgresql-for-apple-m1",
   "displayName": "PostgreSQL for Apple M1",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Develop Postgres everywhere",
   "publisher": "neokil",
   "preview": true,
