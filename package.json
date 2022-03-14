@@ -1,12 +1,12 @@
 {
-  "name": "vscode-postgresql",
-  "displayName": "PostgreSQL",
-  "version": "0.2.0",
+  "name": "vscode-postgresql-for-apple-m1",
+  "displayName": "PostgreSQL for Apple M1",
+  "version": "1.0.0",
   "description": "Develop Postgres everywhere",
-  "publisher": "ms-ossdata",
+  "publisher": "neokil",
   "preview": true,
   "license": "MIT",
-  "aiKey": "AIF-5574968e-856d-40d2-af67-c89a14e76412",
+  "aiKey": "-",
   "icon": "images/extension-icon.png",
   "galleryBanner": {
     "color": "#2F2F2F",
@@ -14,14 +14,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/Microsoft/vscode-postgresql.git"
+    "url": "https://github.com/Neokil/vscode-postgresql-for-mac-m1.git"
   },
   "bugs": {
-    "url": "https://github.com/Microsoft/vscode-postgresql/issues"
+    "url": "https://github.com/Neokil/vscode-postgresql-for-mac-m1/issues"
   },
-  "homepage": "https://github.com/Microsoft/vscode-postgresql/blob/master/README.md",
+  "homepage": "https://github.com/Neokil/vscode-postgresql-for-mac-m1/blob/master/README.md",
   "engines": {
-    "vscode": "^1.23.0"
+    "vscode": "^1.1.37"
   },
   "categories": [
     "Programming Languages",
@@ -86,12 +86,13 @@
     "typemoq": "^1.7.0",
     "typescript": "2.3.4",
     "uglify-js": "mishoo/UglifyJS2#harmony-v2.8.22",
-    "vscode": "^1.0.5",
     "vscode-nls-dev": "https://github.com/Raymondd/vscode-nls-dev/releases/download/2.0.2/build.tar.gz",
     "xmldom": "^0.1.27",
     "yargs": "https://registry.npmjs.org/yargs/-/yargs-3.32.0.tgz"
   },
   "dependencies": {
+    "@types/vscode": "^1.65.0",
+    "@vscode/test-electron": "^2.1.3",
     "applicationinsights": "^1.0.8",
     "body-parser": "^1.15.2",
     "comment-json": "^1.1.3",
@@ -113,9 +114,9 @@
     "semver": "https://registry.npmjs.org/semver/-/semver-5.0.3.tgz",
     "tmp": "^0.0.28",
     "underscore": "^1.8.3",
-    "vscode-extension-telemetry": "^0.1.1",
-    "vscode-languageclient": "^3.5.1",
-    "vscode-nls": "^2.0.2",
+    "@vscode/extension-telemetry": "*",
+    "vscode-languageclient": "*",
+    "vscode-nls": "*",
     "ws": "^1.1.1"
   },
   "contributes": {
@@ -537,7 +538,6 @@
     }
   },
   "scripts": {
-    "postinstall": "node ./node_modules/vscode/bin/install",
     "install-packages": "npm install github:gulpjs/gulp#4.0 && npm install gulp-install && gulp --gulpfile install.js install",
     "package": "gulp package:online"
   }

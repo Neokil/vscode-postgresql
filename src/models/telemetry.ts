@@ -1,6 +1,6 @@
 'use strict';
 import vscode = require('vscode');
-import TelemetryReporter from 'vscode-extension-telemetry';
+import TelemetryReporter from '@vscode/extension-telemetry';
 import Utils = require('./utils');
 import { PlatformInformation } from './platform';
 

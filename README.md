@@ -1,4 +1,6 @@
 # Updated for MacOS M1 due to inactivity on the original Project
+This is a fork of the original PostgreSQL-Extension from Microsoft which seems to be no longer updated and does not work on Apples M1.
+I had to do a few small updates to resolve the node-dependency-hell but it should work fine now. If you have issues feel free to commit a PR and I will happily merge it.
 
 # PostgreSQL for Visual Studio Code
 
@@ -11,7 +13,7 @@ Welcome to PostgreSQL for Visual Studio Code! An extension for developing Postgr
 * Write queries with IntelliSense
 * Run queries and save results as JSON, csv, or Excel
 
-Install link: https://marketplace.visualstudio.com/items?itemName=ms-ossdata.vscode-postgresql 
+Install link: https://marketplace.visualstudio.com/items?itemName=ms-ossdata.vscode-postgresql
 
 ## Quickstart
 

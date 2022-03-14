@@ -29,5 +29,9 @@
   },
   "devDependencies": {
     "assert": "^1.4.1"
+  },
+  "overrides": {
+    "rxjs": "5.0.0-beta.12",
+    "zone.js": "^0.6.26"
   }
 }

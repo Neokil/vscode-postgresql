@@ -60,16 +60,6 @@ export default class MainController implements vscode.Disposable {
     }
 
     /**
-     * Helper method to setup command registrations
-     */
-    private registerCommand(command: string): void {
-        const self = this;
-        this._context.subscriptions.push(vscode.commands.registerCommand(command, () => {
-            self._event.emit(command);
-        }));
-    }
-
-    /**
      * Disposes the controller
      */
     dispose(): void {
@@ -94,30 +84,17 @@ export default class MainController implements vscode.Disposable {
         let activationTimer = new Utils.Timer();
 
         // register VS Code commands
-        this.registerCommand(Constants.cmdConnect);
-        this._event.on(Constants.cmdConnect, () => { self.runAndLogErrors(self.onNewConnection(), 'onNewConnection'); });
-        this.registerCommand(Constants.cmdDisconnect);
-        this._event.on(Constants.cmdDisconnect, () => { self.runAndLogErrors(self.onDisconnect(), 'onDisconnect'); });
-        this.registerCommand(Constants.cmdRunQuery);
-        this._event.on(Constants.cmdRunQuery, () => { self.onRunQuery(); });
-        this.registerCommand(Constants.cmdManageConnectionProfiles);
-        this._event.on(Constants.cmdRunCurrentStatement, () => { self.onRunCurrentStatement(); });
-        this.registerCommand(Constants.cmdRunCurrentStatement);
-        this._event.on(Constants.cmdManageConnectionProfiles, () => { self.runAndLogErrors(self.onManageProfiles(), 'onManageProfiles'); });
-        this.registerCommand(Constants.cmdChooseDatabase);
-        this._event.on(Constants.cmdChooseDatabase, () => { self.runAndLogErrors(self.onChooseDatabase(), 'onChooseDatabase') ; } );
-        this.registerCommand(Constants.cmdChooseLanguageFlavor);
-        this._event.on(Constants.cmdChooseLanguageFlavor, () => { self.runAndLogErrors(self.onChooseLanguageFlavor(), 'onChooseLanguageFlavor') ; } );
-        this.registerCommand(Constants.cmdCancelQuery);
-        this._event.on(Constants.cmdCancelQuery, () => { self.onCancelQuery(); });
-        this.registerCommand(Constants.cmdShowGettingStarted);
-        this._event.on(Constants.cmdShowGettingStarted, () => { self.launchGettingStartedPage(); });
-        this.registerCommand(Constants.cmdNewQuery);
-        this._event.on(Constants.cmdNewQuery, () => { self.runAndLogErrors(self.onNewQuery(), 'onNewQuery'); });
-        this.registerCommand(Constants.cmdRebuildIntelliSenseCache);
-        this._event.on(Constants.cmdRebuildIntelliSenseCache, () => { self.onRebuildIntelliSense(); });
-
-        // this._vscodeWrapper = new VscodeWrapper();
+        this._context.subscriptions.push(vscode.commands.registerCommand(Constants.cmdConnect, () => { self.runAndLogErrors(self.onNewConnection(), 'onNewConnection'); }))
+        this._context.subscriptions.push(vscode.commands.registerCommand(Constants.cmdDisconnect, () => { self.runAndLogErrors(self.onDisconnect(), 'onDisconnect'); }))
+        this._context.subscriptions.push(vscode.commands.registerCommand(Constants.cmdRunQuery, () => { self.onRunQuery(); }))
+        this._context.subscriptions.push(vscode.commands.registerCommand(Constants.cmdRunCurrentStatement, () => { self.onRunCurrentStatement(); }))
+        this._context.subscriptions.push(vscode.commands.registerCommand(Constants.cmdManageConnectionProfiles, () => { self.runAndLogErrors(self.onManageProfiles(), 'onManageProfiles'); }))
+        this._context.subscriptions.push(vscode.commands.registerCommand(Constants.cmdChooseDatabase, () => { self.runAndLogErrors(self.onChooseDatabase(), 'onChooseDatabase') ; }))
+        this._context.subscriptions.push(vscode.commands.registerCommand(Constants.cmdChooseLanguageFlavor, () => { self.runAndLogErrors(self.onChooseLanguageFlavor(), 'onChooseLanguageFlavor') ; }))
+        this._context.subscriptions.push(vscode.commands.registerCommand(Constants.cmdCancelQuery, () => { self.onCancelQuery(); }))
+        this._context.subscriptions.push(vscode.commands.registerCommand(Constants.cmdShowGettingStarted, () => { self.launchGettingStartedPage(); }))
+        this._context.subscriptions.push(vscode.commands.registerCommand(Constants.cmdNewQuery, () => { self.runAndLogErrors(self.onNewQuery(), 'onNewQuery'); }))
+        this._context.subscriptions.push(vscode.commands.registerCommand(Constants.cmdRebuildIntelliSenseCache, () => { self.onRebuildIntelliSense(); }))
 
         // Add handlers for VS Code generated commands
         this._vscodeWrapper.onDidCloseTextDocument(params => this.onDidCloseTextDocument(params));
